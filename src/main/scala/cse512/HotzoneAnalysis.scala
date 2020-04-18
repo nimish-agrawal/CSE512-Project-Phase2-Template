@@ -31,7 +31,10 @@ object HotzoneAnalysis {
 
     // YOU NEED TO CHANGE THIS PART
 
-    return joinDf // YOU NEED TO CHANGE THIS PART
+    val result = spark.sql("select rectangle, count(point) as count from joinResult group by rectangle order by rectangle asc").persist()
+    result.createOrReplaceTempView("resultView")
+    
+    return result
   }
 
 }
