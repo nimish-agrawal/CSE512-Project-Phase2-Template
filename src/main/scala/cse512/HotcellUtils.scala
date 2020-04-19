@@ -48,10 +48,10 @@ object HotcellUtils {
   }
 
   // YOU NEED TO CHANGE THIS PART
-  def calculateStandardDeviation(sumOfSquares: Double, numCells: Double, avg: Double) : Double =
-  {
-    return scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble / numCells.toDouble) - (avg.toDouble * avg.toDouble))).toDouble;
-  }
+//   def calculateStandardDeviation(sumOfSquares: Double, numCells: Double, avg: Double) : Double =
+//   {
+//     return scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble / numCells.toDouble) - (avg.toDouble * avg.toDouble))).toDouble;
+//   }
 
   def calculateNumNeighbours(x: Int, y: Int, z: Int, minX: Int, maxX: Int, minY: Int, maxY: Int, minZ: Int, maxZ: Int): Int =
   {
@@ -82,7 +82,7 @@ object HotcellUtils {
   }
 
   // checks if two cells are neighbours
-  def isNeighbour(x1: Int, x2: Int, x3: Int, y1: Int, y2: Int, y3: Int, minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int) : Boolean = 
+  def isNeighbour(x1: Int, y1: Int, z1: Int, x2: Int, y2: Int, z2: Int, minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int) : Boolean = 
   {
     if (x2 > maxX || x2 < minX || y2 < minY || y2 > maxY || z2 > maxZ || z2 < minZ){
       return false;
