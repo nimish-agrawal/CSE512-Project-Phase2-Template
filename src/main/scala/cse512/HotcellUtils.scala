@@ -48,7 +48,7 @@ object HotcellUtils {
   }
 
   // YOU NEED TO CHANGE THIS PART
-  def calculateStandardDeviation(sumOfSquares: val, numCells: val, avg: val) : Double =
+  def calculateStandardDeviation(sumOfSquares: Double, numCells: val, avg: val) : Double =
   {
     return scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble / numCells.toDouble) - (avg.toDouble * avg.toDouble))).toDouble;
   }
