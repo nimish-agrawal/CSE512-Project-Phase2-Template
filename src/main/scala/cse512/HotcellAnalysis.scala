@@ -55,8 +55,7 @@ def runHotcellAnalysis(spark: SparkSession, pointPath: String): DataFrame =
   
   val avg = (totalHotness.head().getLong(0).toDouble / numCells.toDouble).toDouble     //////////
 
-  standardDeviation = HotcellUtils.calculateStandardDeviation(sumOfSquares, numCells, avg)
-  //val standardDeviation = scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble / numCells.toDouble) - (avg.toDouble * avg.toDouble))).toDouble
+  val standardDeviation = scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble / numCells.toDouble) - (avg.toDouble * avg.toDouble))).toDouble
   
   spark.udf.register("numValidNeighbours", (x: Int, y: Int, z: Int, minX: Int, maxX: Int, minY: Int, maxY: Int, minZ: Int, maxZ: Int) => ((HotcellUtils.calculateNumNeighbours(x, y, z, minX, minY, minZ, maxX, maxY, maxZ))))
   
